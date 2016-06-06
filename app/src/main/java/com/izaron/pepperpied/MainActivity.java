@@ -28,16 +28,16 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         changeTheme();
 
         super.onCreate(savedInstanceState);
-        setContentView(com.izaron.pepperpied.R.layout.activity_main);
+        setContentView(R.layout.activity_main);
 
         final List<String> convertedFileNameList = new ArrayList<>();
         final List<String> fileNameList = new ArrayList<>();
 
         readFileNames(fileNameList, convertedFileNameList);
 
-        ListView listView = (ListView) findViewById(com.izaron.pepperpied.R.id.listView);
+        ListView listView = (ListView) findViewById(R.id.listView);
         SearchableAdapter<String> adapter = new SearchableAdapter<>(this,
-                com.izaron.pepperpied.R.layout.support_simple_spinner_dropdown_item, convertedFileNameList.toArray(new String[convertedFileNameList.size()]));
+                R.layout.support_simple_spinner_dropdown_item, convertedFileNameList.toArray(new String[convertedFileNameList.size()]));
 
         assert listView != null;
         listView.setAdapter(adapter);
@@ -65,9 +65,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         int appTheme = Integer.parseInt(preferences.getString("APP_THEME", "1"));
         if (appTheme == 1)
-            setTheme(com.izaron.pepperpied.R.style.WhiteTheme);
+            setTheme(R.style.WhiteTheme);
         else if (appTheme == 2)
-            setTheme(com.izaron.pepperpied.R.style.BlackTheme);
+            setTheme(R.style.BlackTheme);
         if (appTheme != currentTheme) {
             currentTheme = appTheme;
             return true;
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     }
 
     void readFileNames(List<String> fileNameList, List<String> convertedFileNameList) {
-        Field[] fields = com.izaron.pepperpied.R.raw.class.getFields();
+        Field[] fields = R.raw.class.getFields();
         for (Field field : fields) {
             if (field.getType() == int.class) {
                 fileNameList.add(field.getName());
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case com.izaron.pepperpied.R.id.action_preferences:
+            case R.id.action_preferences:
                 Intent intent = new Intent(getBaseContext(), SettingsActivity.class);
                 startActivity(intent);
                 return true;
@@ -117,8 +117,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(com.izaron.pepperpied.R.menu.menu_search, menu);
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(com.izaron.pepperpied.R.id.action_search));
+        getMenuInflater().inflate(R.menu.menu_search, menu);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search));
         searchView.setOnQueryTextListener(this);
         searchView.setQueryHint("Search");
 

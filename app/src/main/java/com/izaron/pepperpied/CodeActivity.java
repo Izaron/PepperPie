@@ -23,9 +23,9 @@ public class CodeActivity extends AppCompatActivity {
         changeTheme();
 
         super.onCreate(savedInstanceState);
-        setContentView(com.izaron.pepperpied.R.layout.activity_code);
+        setContentView(R.layout.activity_code);
 
-        WebView webView = (WebView) findViewById(com.izaron.pepperpied.R.id.webView);
+        WebView webView = (WebView) findViewById(R.id.webView);
         SharedPreferences preferences = getPreferences();
 
         String fileName = getFileName();
@@ -50,9 +50,9 @@ public class CodeActivity extends AppCompatActivity {
         SharedPreferences preferences = getPreferences();
         int appTheme = Integer.parseInt(preferences.getString("APP_THEME", "1"));
         if (appTheme == 1)
-            setTheme(com.izaron.pepperpied.R.style.WhiteTheme);
+            setTheme(R.style.WhiteTheme);
         else if (appTheme == 2)
-            setTheme(com.izaron.pepperpied.R.style.BlackTheme);
+            setTheme(R.style.BlackTheme);
         if (appTheme != currentTheme) {
             currentTheme = appTheme;
             return true;
@@ -167,8 +167,6 @@ public class CodeActivity extends AppCompatActivity {
                 return "#f5f7ff";
             case "visual":
                 return "#ffffff";
-            case "cb":
-                return "#222222";
             case "xonokai":
                 return "#2a2a2a";
             case "hopscotch":
