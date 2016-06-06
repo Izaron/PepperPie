@@ -1,0 +1,29 @@
+@font-face {
+    font-family: Courier;
+    src: url("file:///android_asset/fonts/courier-bold.ttf")
+}
+
+@font-face {
+    font-family: Consolas;
+    src: url("file:///android_asset/fonts/consolas.ttf")
+}
+
+@font-face {
+    font-family: Menlo;
+    src: url("file:///android_asset/fonts/menlo.ttf")
+}
+
+@font-face {
+    font-family: Monaco;
+    src: url("file:///android_asset/fonts/monaco.ttf")
+}
+
+@font-face {
+    font-family: Inconsolata;
+    src: url("file:///android_asset/fonts/inconsolata.ttf")
+}
+
+@font-face {
+    font-family: "Fira Mono";
+    src: url("file:///android_asset/fonts/fira_mono.ttf")
+}

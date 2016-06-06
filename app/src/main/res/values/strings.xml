@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Java Algorithms</string>
+    <string name="settings">Settings</string>
+    <string name="search">Search</string>
+</resources>

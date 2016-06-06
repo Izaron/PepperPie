@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        android:title="Application Theme"
+        android:summary="Select your favourite application theme."
+        android:key="APP_THEME"
+        android:defaultValue="1"
+        android:entries="@array/appThemeArray"
+        android:entryValues="@array/appThemeValues" />
+
+    <ListPreference
+        android:title="Syntax Highlighting Theme"
+        android:summary="Select your favourite code syntax highlighting theme."
+        android:key="CODE_THEME"
+        android:defaultValue="default"
+        android:entries="@array/codeThemeArray"
+        android:entryValues="@array/codeThemeValues" />
+
+    <CheckBoxPreference android:title="Enable Line Numbers"
+        android:defaultValue="true"
+        android:summary="Turn on if you want to see the line numbers."
+        android:key="LINE_NUMBERS_ENABLED" />
+</PreferenceScreen>

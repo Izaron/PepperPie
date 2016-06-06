@@ -1,0 +1,41 @@
+<resources>
+    <string-array name="codeThemeArray">
+        <item>Default</item>
+        <item>Dark</item>
+        <item>Okaidia</item>
+        <item>Twilight</item>
+        <item>Solarized</item>
+        <item>Atom Dark</item>
+        <item>Sulphur Pool</item>
+        <item>GhColors</item>
+        <item>Hopscotch</item>
+        <item>Pojoaque</item>
+        <item>Visual</item>
+        <item>Monokai</item>
+    </string-array>
+
+    <string-array name="codeThemeValues">
+        <item>default</item>
+        <item>dark</item>
+        <item>okaidia</item>
+        <item>twilight</item>
+        <item>solarized</item>
+        <item>atomdark</item>
+        <item>sulphurpool</item>
+        <item>ghcolors</item>
+        <item>hopscotch</item>
+        <item>pojoaque</item>
+        <item>visual</item>
+        <item>xonokai</item>
+    </string-array>
+
+    <string-array name="appThemeArray">
+        <item>White</item>
+        <item>Black</item>
+    </string-array>
+
+    <string-array name="appThemeValues">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+</resources>
