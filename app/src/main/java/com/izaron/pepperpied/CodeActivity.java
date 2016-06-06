@@ -1,12 +1,16 @@
 package com.izaron.pepperpied;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -17,6 +21,7 @@ import java.text.MessageFormat;
 public class CodeActivity extends AppCompatActivity {
 
     private int currentTheme;
+    private String currentCodeTheme;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +39,7 @@ public class CodeActivity extends AppCompatActivity {
         setTitle(convertedFileName);
 
         String codeTheme = getCodeTheme(preferences);
+        currentCodeTheme = codeTheme;
         String lineNumbersProperty = getLineNumbersProperty(preferences);
         String sourceCode = readSourceCode(fileName);
         String html = generateHtml(codeTheme, lineNumbersProperty, sourceCode);
@@ -59,6 +65,11 @@ public class CodeActivity extends AppCompatActivity {
         } else {
             return false;
         }
+    }
+
+    boolean isChangedCodeTheme(SharedPreferences preferences) {
+        String codeTheme = getCodeTheme(preferences);
+        return !codeTheme.equals(currentCodeTheme);
     }
 
     SharedPreferences getPreferences() {
@@ -136,24 +147,6 @@ public class CodeActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public void onResume() {
-        if (changeTheme())
-            recreate();
-        super.onResume();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem menuItem) {
-        switch (menuItem.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                return true;
-            default:
-                return super.onOptionsItemSelected(menuItem);
-        }
-    }
-
     String getBackgroundColor(String codeTheme) {
         switch (codeTheme) {
             // Official themes
@@ -186,5 +179,35 @@ public class CodeActivity extends AppCompatActivity {
             default:
                 return "#ffffff";
         }
+    }
+
+    @Override
+    public void onResume() {
+        if (changeTheme())
+            recreate();
+        if (isChangedCodeTheme(getPreferences()))
+            recreate();
+        super.onResume();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            case R.id.action_preferences:
+                Intent intent = new Intent(getBaseContext(), SettingsActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(menuItem);
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_code, menu);
+        return true;
     }
 }
