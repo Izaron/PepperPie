@@ -105,7 +105,14 @@ public class CodeActivity extends AppCompatActivity {
     }
 
     String generateHtml(String codeTheme, String lineNumbersProperty, String sourceCode) {
-        return MessageFormat.format("<link href=\"styles/fonts.css\" rel=\"stylesheet\"/><link href=\"styles/{0}.css\" rel=\"stylesheet\"/><script src=\"styles/style.js\"></script> <html><body><table style = \"padding: 0px; margin: 0px;border: none;border-collapse: collapse;\"><tr><td> <pre><code class=\"language-java {1}\" >{2}</td>\n</tr>\n</table></code></pre>  </body></html>", codeTheme, lineNumbersProperty, sourceCode);
+        //return MessageFormat.format("<link href=\"styles/fonts.css\" rel=\"stylesheet\"/><link href=\"styles/{0}.css\" rel=\"stylesheet\"/><script src=\"styles/style.js\"></script> <html><body><table style = \"padding: 0px; margin: 0px;border: none;border-collapse: collapse;\"><tr><td> <pre><code class=\"language-java {1}\" >{2}</td>\n</tr>\n</table></code></pre>  </body></html>", codeTheme, lineNumbersProperty, sourceCode);
+        return "<link rel=\"stylesheet\" href=\"styles-hl/vs.css\">\n" +
+                "<script src=\"highlight.pack.js\"></script>\n" +
+                "<script src=\"highlightjs-line-numbers.js\"></script>\n" +
+                "<script>hljs.initHighlightingOnLoad();</script>\n" +
+                "<script>hljs.initLineNumbersOnLoad();</script>\n" +
+                "<link rel=\"stylesheet\" href=\"lines.css\">\n" +
+                "<html><body><table><tr><td>  <pre><code class=\"language-java\" >" + sourceCode + "</td>\n</tr>\n</table></code></pre>  </body></html>";
     }
 
     @SuppressLint("SetJavaScriptEnabled")
