@@ -25,8 +25,10 @@ public class SettingsActivity extends AppCompatActivity {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         int appTheme = Integer.parseInt(preferences.getString("APP_THEME", "1"));
         if (appTheme == 1)
-            setTheme(R.style.WhiteTheme);
+            setTheme(R.style.AppTheme);
         else if (appTheme == 2)
+            setTheme(R.style.WhiteTheme);
+        else if (appTheme == 3)
             setTheme(R.style.BlackTheme);
         if (appTheme != currentTheme) {
             currentTheme = appTheme;

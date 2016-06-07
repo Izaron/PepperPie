@@ -30,6 +30,7 @@
     </string-array>
 
     <string-array name="appThemeArray">
+        <item>Default</item>
         <item>White</item>
         <item>Black</item>
     </string-array>
@@ -37,5 +38,6 @@
     <string-array name="appThemeValues">
         <item>1</item>
         <item>2</item>
+        <item>3</item>
     </string-array>
 </resources>

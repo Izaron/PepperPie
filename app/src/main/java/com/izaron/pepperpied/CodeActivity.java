@@ -6,17 +6,14 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 import java.io.InputStream;
-import java.text.MessageFormat;
 
 public class CodeActivity extends AppCompatActivity {
 
@@ -56,8 +53,10 @@ public class CodeActivity extends AppCompatActivity {
         SharedPreferences preferences = getPreferences();
         int appTheme = Integer.parseInt(preferences.getString("APP_THEME", "1"));
         if (appTheme == 1)
-            setTheme(R.style.WhiteTheme);
+            setTheme(R.style.AppTheme);
         else if (appTheme == 2)
+            setTheme(R.style.WhiteTheme);
+        else if (appTheme == 3)
             setTheme(R.style.BlackTheme);
         if (appTheme != currentTheme) {
             currentTheme = appTheme;
