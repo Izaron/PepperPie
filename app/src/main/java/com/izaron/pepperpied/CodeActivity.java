@@ -13,7 +13,10 @@ import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class CodeActivity extends AppCompatActivity {
 
@@ -116,13 +119,21 @@ public class CodeActivity extends AppCompatActivity {
 
     String generateHtml(String codeTheme, String lineNumbersProperty, String sourceCode) {
         //return MessageFormat.format("<link href=\"styles/fonts.css\" rel=\"stylesheet\"/><link href=\"styles/{0}.css\" rel=\"stylesheet\"/><script src=\"styles/style.js\"></script> <html><body><table style = \"padding: 0px; margin: 0px;border: none;border-collapse: collapse;\"><tr><td> <pre><code class=\"language-java {1}\" >{2}</td>\n</tr>\n</table></code></pre>  </body></html>", codeTheme, lineNumbersProperty, sourceCode);
-        return "<link rel=\"stylesheet\" href=\"styles-hl/vs.css\">\n" +
-                "<script src=\"highlight.pack.js\"></script>\n" +
-                "<script src=\"highlightjs-line-numbers.js\"></script>\n" +
-                "<script>hljs.initHighlightingOnLoad();</script>\n" +
-                "<script>hljs.initLineNumbersOnLoad();</script>\n" +
-                "<link rel=\"stylesheet\" href=\"lines.css\">\n" +
-                "<html><body>  <pre><code class=\"java\" >" + sourceCode + "</code></pre>  </body></html>";
+        if (!lineNumbersProperty.isEmpty()) {
+            return "<link rel=\"stylesheet\" href=\"styles-hl/" + codeTheme + ".css\">\n" +
+                    "<script src=\"highlight.pack.js\"></script>\n" +
+                    "<script src=\"highlightjs-line-numbers.js\"></script>\n" +
+                    "<script>hljs.initHighlightingOnLoad();</script>\n" +
+                    "<script>hljs.initLineNumbersOnLoad();</script>\n" +
+                    "<link rel=\"stylesheet\" href=\"lines.css\">\n" +
+                    "<html><body>  <pre><code class=\"java\" >" + sourceCode + "</code></pre>  </body></html>";
+        } else {
+            return "<link rel=\"stylesheet\" href=\"styles-hl/" + codeTheme + ".css\">\n" +
+                    "<script src=\"highlight.pack.js\"></script>\n" +
+                    "<script>hljs.initHighlightingOnLoad();</script>\n" +
+                    "<link rel=\"stylesheet\" href=\"lines.css\">\n" +
+                    "<html><body>  <pre><code class=\"java\" >" + sourceCode + "</code></pre>  </body></html>";
+        }
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -147,37 +158,56 @@ public class CodeActivity extends AppCompatActivity {
     }
 
     String getBackgroundColor(String codeTheme) {
-        switch (codeTheme) {
-            // Official themes
-            case "default":
-                return "#f5f2f0";
-            case "dark":
-                return "#4d4033";
-            case "okaidia":
-                return "#272822";
-            case "twilight":
-                return "#141414";
-            case "solarized":
-                return "#fdf6e3";
-            // Unofficial themes
-            case "atomdark":
-                return "#1d1f21";
-            case "sulphurpool":
-                return "#f5f7ff";
-            case "visual":
-                return "#ffffff";
-            case "xonokai":
-                return "#2a2a2a";
-            case "hopscotch":
-                return "#322931";
-            case "ghcolors":
-                return "#ffffff";
-            case "pojoaque":
-                return "#181914";
-            // Unknown theme
-            default:
-                return "#ffffff";
+        String back = null;
+
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(
+                    new InputStreamReader(getAssets().open("styles-hl/" + codeTheme + ".css"), "UTF-8"));
+
+            String mLine;
+            while ((mLine = reader.readLine()) != null) {
+                if (mLine.contains("background:") && back == null) {
+                    if (mLine.contains("#")) {
+                        String str = mLine.substring(mLine.indexOf('#'));
+                        while (str.charAt(0) == ' ')
+                            str = str.substring(1);
+                        if (str.contains(" "))
+                            str = str.substring(0, str.indexOf(' '));
+                        while (str.charAt(str.length() - 1) == ';')
+                            str = str.substring(0, str.length() - 1);
+                        back = str;
+                    } else {
+                        String str = mLine.substring(mLine.indexOf("background:") + "background:".length());
+                        while (str.charAt(0) == ' ')
+                            str = str.substring(1);
+                        if (str.contains(" "))
+                            str = str.substring(0, str.indexOf(' '));
+                        while (str.charAt(str.length() - 1) == ';')
+                            str = str.substring(0, str.length() - 1);
+                        back = str;
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
+
+        if (back != null && back.startsWith("#") && back.length() - 1 == 3)
+            back += back.substring(1);
+
+        if (back == null)
+            back = "#ffffff";
+
+        return back;
     }
 
     @Override

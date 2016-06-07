@@ -1,4 +1,40 @@
+@font-face {
+    font-family: Courier;
+    src: url("fonts/courier-bold.ttf")
+}
+
+@font-face {
+    font-family: Consolas;
+    src: url("fonts/consolas.ttf")
+}
+
+@font-face {
+    font-family: Menlo;
+    src: url("fonts/menlo.ttf")
+}
+
+@font-face {
+    font-family: Monaco;
+    src: url("fonts/monaco.ttf")
+}
+
+@font-face {
+    font-family: Inconsolata;
+    src: url("fonts/inconsolata.ttf")
+}
+
+@font-face {
+    font-family: "Fira Mono";
+    src: url("fonts/fira_mono.ttf")
+}
+
+@font-face {
+    font-family: "Andale Mono";
+    src: url("fonts/andale-mono.ttf")
+}
+
 .hljs {
+    font-family: "Andale Mono";
     overflow-x: visible;
     padding-left: 3.5em;
 }

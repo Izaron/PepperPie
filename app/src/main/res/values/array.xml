@@ -1,32 +1,150 @@
 <resources>
     <string-array name="codeThemeArray">
         <item>Default</item>
+        <item>Agate</item>
+        <item>Androidstudio</item>
+        <item>Arduino Light</item>
+        <item>Arta</item>
+        <item>Ascetic</item>
+        <item>Atelier Cave Dark</item>
+        <item>Atelier Cave Light</item>
+        <item>Atelier Dune Dark</item>
+        <item>Atelier Dune Light</item>
+        <item>Atelier Estuary Dark</item>
+        <item>Atelier Estuary Light</item>
+        <item>Atelier Forest Dark</item>
+        <item>Atelier Forest Light</item>
+        <item>Atelier Heath Dark</item>
+        <item>Atelier Heath Light</item>
+        <item>Atelier Lakeside Dark</item>
+        <item>Atelier Lakeside Light</item>
+        <item>Atelier Plateau Dark</item>
+        <item>Atelier Plateau Light</item>
+        <item>Atelier Savanna Dark</item>
+        <item>Atelier Savanna Light</item>
+        <item>Atelier Seaside Dark</item>
+        <item>Atelier Seaside Light</item>
+        <item>Atelier Sulphurpool Dark</item>
+        <item>Atelier Sulphurpool Light</item>
+        <item>Brown Paper</item>
+        <item>Codepen Embed</item>
+        <item>Color Brewer</item>
         <item>Dark</item>
-        <item>Okaidia</item>
-        <item>Twilight</item>
-        <item>Solarized</item>
-        <item>Atom Dark</item>
-        <item>Sulphur Pool</item>
-        <item>GhColors</item>
+        <item>Darkula</item>
+        <item>Docco</item>
+        <item>Dracula</item>
+        <item>Far</item>
+        <item>Foundation</item>
+        <item>Github</item>
+        <item>Github Gist</item>
+        <item>Googlecode</item>
+        <item>Grayscale</item>
+        <item>Gruvbox Dark</item>
+        <item>Gruvbox Light</item>
         <item>Hopscotch</item>
-        <item>Pojoaque</item>
-        <item>Visual</item>
+        <item>Hybrid</item>
+        <item>Idea</item>
+        <item>Ir Black</item>
+        <item>Magula</item>
+        <item>Mono Blue</item>
         <item>Monokai</item>
+        <item>Monokai Sublime</item>
+        <item>Obsidian</item>
+        <item>Paraiso Dark</item>
+        <item>Paraiso Light</item>
+        <item>Pojoaque</item>
+        <item>Purebasic</item>
+        <item>Qtcreator Dark</item>
+        <item>Qtcreator Light</item>
+        <item>Railscasts</item>
+        <item>Rainbow</item>
+        <item>School Book</item>
+        <item>Solarized Dark</item>
+        <item>Solarized Light</item>
+        <item>Sunburst</item>
+        <item>Tomorrow</item>
+        <item>Tomorrow Night</item>
+        <item>Tomorrow Night Blue</item>
+        <item>Tomorrow Night Bright</item>
+        <item>Tomorrow Night Eighties</item>
+        <item>Vs</item>
+        <item>Xcode</item>
+        <item>Xt256</item>
+        <item>Zenburn</item>
     </string-array>
 
     <string-array name="codeThemeValues">
         <item>default</item>
+        <item>agate</item>
+        <item>androidstudio</item>
+        <item>arduino-light</item>
+        <item>arta</item>
+        <item>ascetic</item>
+        <item>atelier-cave-dark</item>
+        <item>atelier-cave-light</item>
+        <item>atelier-dune-dark</item>
+        <item>atelier-dune-light</item>
+        <item>atelier-estuary-dark</item>
+        <item>atelier-estuary-light</item>
+        <item>atelier-forest-dark</item>
+        <item>atelier-forest-light</item>
+        <item>atelier-heath-dark</item>
+        <item>atelier-heath-light</item>
+        <item>atelier-lakeside-dark</item>
+        <item>atelier-lakeside-light</item>
+        <item>atelier-plateau-dark</item>
+        <item>atelier-plateau-light</item>
+        <item>atelier-savanna-dark</item>
+        <item>atelier-savanna-light</item>
+        <item>atelier-seaside-dark</item>
+        <item>atelier-seaside-light</item>
+        <item>atelier-sulphurpool-dark</item>
+        <item>atelier-sulphurpool-light</item>
+        <item>brown-paper</item>
+        <item>codepen-embed</item>
+        <item>color-brewer</item>
         <item>dark</item>
-        <item>okaidia</item>
-        <item>twilight</item>
-        <item>solarized</item>
-        <item>atomdark</item>
-        <item>sulphurpool</item>
-        <item>ghcolors</item>
+        <item>darkula</item>
+        <item>docco</item>
+        <item>dracula</item>
+        <item>far</item>
+        <item>foundation</item>
+        <item>github</item>
+        <item>github-gist</item>
+        <item>googlecode</item>
+        <item>grayscale</item>
+        <item>gruvbox-dark</item>
+        <item>gruvbox-light</item>
         <item>hopscotch</item>
+        <item>hybrid</item>
+        <item>idea</item>
+        <item>ir-black</item>
+        <item>magula</item>
+        <item>mono-blue</item>
+        <item>monokai</item>
+        <item>monokai-sublime</item>
+        <item>obsidian</item>
+        <item>paraiso-dark</item>
+        <item>paraiso-light</item>
         <item>pojoaque</item>
-        <item>visual</item>
-        <item>xonokai</item>
+        <item>purebasic</item>
+        <item>qtcreator_dark</item>
+        <item>qtcreator_light</item>
+        <item>railscasts</item>
+        <item>rainbow</item>
+        <item>school-book</item>
+        <item>solarized-dark</item>
+        <item>solarized-light</item>
+        <item>sunburst</item>
+        <item>tomorrow</item>
+        <item>tomorrow-night</item>
+        <item>tomorrow-night-blue</item>
+        <item>tomorrow-night-bright</item>
+        <item>tomorrow-night-eighties</item>
+        <item>vs</item>
+        <item>xcode</item>
+        <item>xt256</item>
+        <item>zenburn</item>
     </string-array>
 
     <string-array name="appThemeArray">

@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     }
 
     String convertName(String fileName) {
-        String[] strings = fileName.split("\\_");
+        String[] strings = fileName.split("_");
         StringBuilder buffer = new StringBuilder();
         for (String string : strings)
             buffer.append(string.substring(0, 1).toUpperCase()).append(string.substring(1));
