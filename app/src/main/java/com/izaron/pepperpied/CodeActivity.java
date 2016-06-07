@@ -123,7 +123,7 @@ public class CodeActivity extends AppCompatActivity {
                 "<script>hljs.initHighlightingOnLoad();</script>\n" +
                 "<script>hljs.initLineNumbersOnLoad();</script>\n" +
                 "<link rel=\"stylesheet\" href=\"lines.css\">\n" +
-                "<html><body><table><tr><td>  <pre><code class=\"language-java\" >" + sourceCode + "</td>\n</tr>\n</table></code></pre>  </body></html>";
+                "<html><body>  <pre><code class=\"java\" >" + sourceCode + "</code></pre>  </body></html>";
     }
 
     @SuppressLint("SetJavaScriptEnabled")

@@ -1,3 +1,7 @@
+.hljs {
+  overflow-x: visible;
+}
+
 .hljs-line-numbers {
     text-align: right;
     border-right: 1px solid #ccc;
