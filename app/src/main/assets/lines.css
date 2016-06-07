@@ -1,8 +1,10 @@
 .hljs {
-  overflow-x: visible;
+    overflow-x: visible;
+    padding-left: 3.5em;
 }
 
 .hljs-line-numbers {
+    padding-left: 0.5em;
     text-align: right;
     border-right: 1px solid #ccc;
     color: #999;
