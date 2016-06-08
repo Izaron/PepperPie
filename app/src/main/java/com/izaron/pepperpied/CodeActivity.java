@@ -22,6 +22,7 @@ public class CodeActivity extends AppCompatActivity {
 
     private int currentTheme;
     private String currentCodeTheme;
+    private String currentLineNumbersProperty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class CodeActivity extends AppCompatActivity {
         String codeTheme = getCodeTheme(preferences);
         currentCodeTheme = codeTheme;
         String lineNumbersProperty = getLineNumbersProperty(preferences);
+        currentLineNumbersProperty = lineNumbersProperty;
         String sourceCode = readSourceCode(fileName);
         String html = generateHtml(codeTheme, lineNumbersProperty, sourceCode);
 
@@ -55,11 +57,11 @@ public class CodeActivity extends AppCompatActivity {
     boolean changeTheme() {
         SharedPreferences preferences = getPreferences();
         int appTheme = Integer.parseInt(preferences.getString("APP_THEME", "1"));
-        if (appTheme == 1)
+        if (appTheme == 0)
             setTheme(R.style.AppTheme);
-        else if (appTheme == 2)
+        else if (appTheme == 1)
             setTheme(R.style.WhiteTheme);
-        else if (appTheme == 3)
+        else if (appTheme == 2)
             setTheme(R.style.BlackTheme);
         if (appTheme != currentTheme) {
             currentTheme = appTheme;
@@ -72,6 +74,11 @@ public class CodeActivity extends AppCompatActivity {
     boolean isChangedCodeTheme(SharedPreferences preferences) {
         String codeTheme = getCodeTheme(preferences);
         return !codeTheme.equals(currentCodeTheme);
+    }
+
+    boolean isChangedLineNumbersProperty(SharedPreferences preferences) {
+        String lineNumbersProperty = getLineNumbersProperty(preferences);
+        return !lineNumbersProperty.equals(currentLineNumbersProperty);
     }
 
     SharedPreferences getPreferences() {
@@ -215,6 +222,8 @@ public class CodeActivity extends AppCompatActivity {
         if (changeTheme())
             recreate();
         if (isChangedCodeTheme(getPreferences()))
+            recreate();
+        if (isChangedLineNumbersProperty(getPreferences()))
             recreate();
         super.onResume();
     }

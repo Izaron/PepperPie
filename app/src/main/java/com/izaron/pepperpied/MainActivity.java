@@ -64,11 +64,11 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     boolean changeTheme() {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         int appTheme = Integer.parseInt(preferences.getString("APP_THEME", "1"));
-        if (appTheme == 1)
+        if (appTheme == 0)
             setTheme(R.style.AppTheme);
-        else if (appTheme == 2)
+        else if (appTheme == 1)
             setTheme(R.style.WhiteTheme);
-        else if (appTheme == 3)
+        else if (appTheme == 2)
             setTheme(R.style.BlackTheme);
         if (appTheme != currentTheme) {
             currentTheme = appTheme;
