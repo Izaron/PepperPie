@@ -56,7 +56,7 @@ public class CodeActivity extends AppCompatActivity {
 
     boolean changeTheme() {
         SharedPreferences preferences = getPreferences();
-        int appTheme = Integer.parseInt(preferences.getString("APP_THEME", "1"));
+        int appTheme = Integer.parseInt(preferences.getString("APP_THEME", "0"));
         if (appTheme == 0)
             setTheme(R.style.AppTheme);
         else if (appTheme == 1)
