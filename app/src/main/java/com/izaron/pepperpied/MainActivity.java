@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         convertedFileNameList = new ArrayList<>();
         fileNameList = new ArrayList<>();
 
-        fileSet = new HashSet<>();
+        fileSet = new TreeSet<>();
         readFileNames(fileNameList, convertedFileNameList);
 
         uriSet = new HashSet<>();
@@ -226,7 +226,10 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         if (uri.equals("prefix_function")) return "kmp";
         if (uri.equals("suffix_array_lcp")) return "n_u_l_l";
 
-        //if (uri.equals("treap_bst")) return "treap_b_s_t";
+        if (uri.equals("binary_heap_with_increase_priority")) return "binary_heap_extended";
+        if (uri.equals("max_flow_edmond_karp")) return "max_flow_edmonds_karp";
+        if (uri.equals("edit_distance")) return "string_distances";
+        if (uri.equals("treap_bst")) return "treap_b_s_t";
 
         return uri;
     }

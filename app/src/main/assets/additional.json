@@ -1,0 +1,592 @@
+[
+  {
+    "_id": "526b81bd9d872cdc1500007e",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Data Structures",
+    "title": "Treap with explicit keys",
+    "uri": "treap_b_s_t"
+  },
+
+  {
+    "_id": "526b7f399d872cdc15000068",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+    {
+    "language": "java"
+    }
+    ],
+    "subgroup": "Shortest Paths",
+    "title": "Bellman–Ford algorithm second version",
+    "uri": "bellman_ford2"
+  },
+
+  {
+    "_id": "526b7f399d872cdc15000068",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Linear Algebra",
+    "title": "Determinant of a matrix second version",
+    "uri": "determinant1"
+  },
+
+  {
+    "_id": "526b7fa09d872cdc1500006a",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Shortest Paths",
+    "title": "Shortest paths. Dijkstra's algorithm with custom binary heap",
+    "uri": "dijkstra_custom_heap"
+  },
+
+  {
+    "_id": "5269314ebba11a7056000005",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Data Structures",
+    "title": "Disjoint-set data structure with ranks",
+    "uri": "disjoint_sets_rank"
+  },
+
+  {
+    "_id": "526b40155831a21c17000007",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Data Structures",
+    "title": "Fenwick tree 3D for sum",
+    "uri": "fenwick_tree3_d"
+  },
+
+  {
+    "_id": "526b81fa9d872cdc15000082",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Graphs",
+    "title": "Graph class template",
+    "uri": "graph"
+  },
+
+  {
+    "_id": "532c41308612780200000003",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Graphs",
+    "title": "Graph greedy coloring",
+    "uri": "graph_coloring_greedy"
+  },
+
+  {
+    "_id": "532c41308612780200000003",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Graphs",
+    "title": "Graph greedy coloring second version",
+    "uri": "graph_coloring_greedy2"
+  },
+
+  {
+    "_id": "526b4a749d872cdc15000011",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Data Structures",
+    "title": "Heavy-light decomposition second version",
+    "uri": "heavy_light2"
+  },
+
+  {
+    "_id": "526b4a749d872cdc15000011",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Data Structures",
+    "title": "Heavy-light decomposition without revursion",
+    "uri": "heavy_light2_no_recursion"
+  },
+
+  {
+    "_id": "532ac721b5c58a0200000003",
+    "title": "Inverse fast Fourier transform",
+    "uri": "i_f_f_t",
+    "group": "Algorithms and Data Structures",
+    "subgroup": "Numeric Methods",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ]
+  },
+
+  {
+    "_id": "526b4a749d872cdc15000011",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Miscellaneous",
+    "title": "Minimal number of moves a Knight needs to reach one square from the other one on empty board",
+    "uri": "knight_distance"
+  },
+
+  {
+    "_id": "526b4a749d872cdc15000011",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Data Structures",
+    "title": "Schieber and Vishkin LCA algorithm",
+    "uri": "lca_schieber_vishkin"
+  },
+
+  {
+    "_id": "526b4a749d872cdc15000011",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Data Structures",
+    "title": "Schieber and Vishkin LCA algorithm",
+    "uri": "lca_schieber_vishkin"
+  },
+
+  {
+    "_id": "53d9b4d1cb3fda0200000003",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Optimization",
+    "title": "Lin–Kernighan heuristic (tsp) second version",
+    "uri": "lin-kernighan2"
+  },
+
+  {
+    "_id": "5366dca53c2afb0200000005",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Geometry",
+    "title": "Line geometry",
+    "uri": "line_geometry"
+  },
+
+  {
+    "_id": "52693d2dbba11a7056000009",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Strings",
+    "title": "Minimal cyclic shift",
+    "uri": "lyndon_decomposition"
+  },
+
+  {
+    "_id": "526b58e59d872cdc15000036",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      },
+      {
+        "language": "javascript"
+      }
+    ],
+    "subgroup": "Flows",
+    "title": "Maximum flow. Ford-Fulkerson simplified algorithm",
+    "uri": "max_flow_ford_fulkerson_simple"
+  },
+
+  {
+    "_id": "526b58fe9d872cdc15000038",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Flows",
+    "title": "Maximum flow. Push–relabel algorithm in $O(V^3)$",
+    "uri": "max_flow_preflow_n3"
+  },
+
+  {
+    "_id": "526b59469d872cdc1500003a",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Matching",
+    "title": "Maximum matching for bipartite graph. Hopcroft-Karp algorithm in $O(E * \\sqrt{V})$",
+    "uri": "max_matching_hopcroft_karp"
+  },
+
+  {
+    "_id": "526b59469d872cdc1500003a",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Matching",
+    "title": "Maximum matching for bipartite graph. Randomized algorithm",
+    "uri": "max_matching_randomized"
+  },
+
+  {
+    "_id": "5324ee953569a40200000003",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Backtracking",
+    "title": "Maximum weighted independent set. Slow bitset algorithm",
+    "uri": "mis"
+  },
+
+  {
+    "_id": "526b821f9d872cdc15000084",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Data Structures",
+    "title": "Mo's algorithm second version",
+    "uri": "mos_algorithm2"
+  },
+
+  {
+    "_id": "52693ccebba11a7056000007",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Miscellaneous",
+    "title": "Generic Pair class template",
+    "uri": "pair"
+  },
+
+  {
+    "_id": "52693ccebba11a7056000007",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Miscellaneous",
+    "title": "PairLong class template",
+    "uri": "pair_long"
+  },
+
+  {
+    "_id": "5366dca53c2afb0200000005",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Geometry",
+    "title": "Ray sphere intersections",
+    "uri": "ray_intersections"
+  },
+
+  {
+    "_id": "539764dc52e7010200000003",
+    "title": "Expression parser: recursive descent algorithm second version",
+    "uri": "recursive_descent_parser",
+    "group": "Algorithms and Data Structures",
+    "subgroup": "Strings",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ]
+  },
+
+  {
+    "_id": "526b201fbb6b6b8467000011",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Depth-First Search",
+    "title": "Strongly connected components. Tarjan's algorithm without recursion",
+    "uri": "s_c_c_tarjan_no_recursion"
+  },
+
+  {
+    "_id": "526b201fbb6b6b8467000011",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Depth-First Search",
+    "title": "Strongly connected components. Test for all SCC algorithms",
+    "uri": "s_c_c_test"
+  },
+
+  {
+    "_id": "526b201fbb6b6b8467000011",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Depth-First Search",
+    "title": "Strongly connected components. Transitive closure algorithm",
+    "uri": "s_c_c_transitive_closure"
+  },
+
+  {
+    "_id": "526b7d889d872cdc1500005e",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Data Structures",
+    "title": "Segment Tree with interval modification second version",
+    "uri": "segment_tree2"
+  },
+
+  {
+    "_id": "526b7d889d872cdc1500005e",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Data Structures",
+    "title": "2D Segment Tree with single element modification",
+    "uri": "segment_tree2_d"
+  },
+
+  {
+    "_id": "526b7d889d872cdc1500005e",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Data Structures",
+    "title": "3D Segment Tree with single element modification",
+    "uri": "segment_tree3_d"
+  },
+
+  {
+    "_id": "526b7db99d872cdc15000060",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Data Structures",
+    "title": "Non-recursive segment tree second version",
+    "uri": "segment_tree_fast2"
+  },
+
+  {
+    "_id": "52c72028d1bbb80200000003",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Data Structures",
+    "title": "Segment Tree for Add/Max second version",
+    "uri": "segment_tree_interval_add_max2"
+  },
+
+  {
+    "_id": "526b831a9d872cdc15000090",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "c++"
+      },
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Geometry",
+    "title": "Segment intersection second version",
+    "uri": "segments_intersection_scanline2"
+  },
+
+  {
+    "_id": "526b7ec09d872cdc15000064",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Dynamic Programming",
+    "title": "Shortest Hamiltonian cycle second version",
+    "uri": "shortest_hamiltonian_cycle2"
+  },
+
+  {
+    "_id": "526b81e69d872cdc15000080",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Data Structures",
+    "title": "Treap with implicit key second version",
+    "uri": "treap_implicit_key2"
+  },
+
+  {
+    "_id": "5366dca53c2afb0200000005",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Geometry",
+    "title": "Vector2D class template",
+    "uri": "vector2d"
+  },
+
+  {
+    "_id": "5366dca53c2afb0200000005",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Miscellaneous",
+    "title": "JFrame visualizer view",
+    "uri": "vis"
+  },
+
+  {
+    "_id": "526b22a6539fce7c1e00000c",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Dynamic Programming",
+    "title": "Edit distance in $O(N^2)$",
+    "uri": "string_distances"
+  },
+
+  {
+    "_id": "526b4a749d872cdc15000011",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Miscellaneous",
+    "title": "For each position in a sequence of numbers, search among the previous positions for the last position that contains a smaller value.",
+    "uri": "all_nearest_smaller_values"
+  },
+
+  {
+    "_id": "526b4a749d872cdc15000011",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Graphs",
+    "title": "Centroid composition building",
+    "uri": "centroid_decomposition"
+  },
+
+  {
+    "_id": "526b3acc5831a21c17000003",
+    "group": "Algorithms and Data Structures",
+    "implementations": [
+      {
+        "language": "java"
+      }
+    ],
+    "subgroup": "Strings",
+    "title": "Expression parser: another one",
+    "uri": "calc2"
+  }
+]

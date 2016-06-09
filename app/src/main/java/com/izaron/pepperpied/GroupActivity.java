@@ -58,7 +58,7 @@ public class GroupActivity extends AppCompatActivity implements SearchView.OnQue
         for (int i = 0; i < titleFileNameList.size(); i++) {
             map = new HashMap<>();
             map.put("Name", convertedFileNameList.get(i));
-            String info = "<null>";
+            String info = "";
             if (MainActivity.titleMap.containsKey(fileNameList.get(i)))
                 info = MainActivity.titleMap.get(fileNameList.get(i));
             info = info.replace("{n}", "{N}");
@@ -73,6 +73,10 @@ public class GroupActivity extends AppCompatActivity implements SearchView.OnQue
             info = info.replace("^2", "\u00B2").replace("^3", "\u00B3").replace("^4", "\u2074").replace("^n", "\u207F").replace("^N", "\u207F");
             info = info.replace("\\sqrt", "\u221A");
             info = info.replace("*", "*");
+
+            if (info.isEmpty())
+                info = "No description";
+
             map.put("Tel", info);
             myArrList.add(map);
         }
