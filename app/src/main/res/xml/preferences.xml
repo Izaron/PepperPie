@@ -20,4 +20,9 @@
         android:defaultValue="true"
         android:summary="Turn on if you want to see the line numbers."
         android:key="LINE_NUMBERS_ENABLED" />
+
+    <CheckBoxPreference android:title="Enable Algorithm Descriptions"
+        android:defaultValue="true"
+        android:summary="Turn on if you want to see useful information."
+        android:key="ALGO_DESC_ENABLED" />
 </PreferenceScreen>

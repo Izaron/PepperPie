@@ -23,6 +23,7 @@ public class GroupActivity extends AppCompatActivity implements SearchView.OnQue
 
     private Filter filter;
     private int currentTheme;
+    private String currentAlgoDescProperty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +47,6 @@ public class GroupActivity extends AppCompatActivity implements SearchView.OnQue
             if (subgroup.equals(groupName) || groupName.equals("All algorithms")) {
                 fileNameList.add(s);
                 convertedFileNameList.add(MainActivity.convertedFileNameList.get(i));
-                //titleFileNameList.add(MainActivity.titleMap.get(s));
                 titleFileNameList.add(s);
             }
         }
@@ -81,40 +81,70 @@ public class GroupActivity extends AppCompatActivity implements SearchView.OnQue
             myArrList.add(map);
         }
 
+        currentAlgoDescProperty = getAlgoDescProperty(getPreferences());
 
-        //SimpleAdapter adapter = new SimpleAdapter(this, myArrList, android.R.layout.simple_list_item_2,
-        //        new String[] {"Name", "Tel"},
-        //        new int[] {android.R.id.text1, android.R.id.text2});
+        if (currentAlgoDescProperty.equals("enabled")) {
+            SearchableSimpleAdapter adapter = new SearchableSimpleAdapter(this, myArrList, android.R.layout.simple_list_item_2,
+                    new String[]{"Name", "Tel"},
+                    new int[]{R.id.customTextView, android.R.id.text2});
 
-        SearchableSimpleAdapter adapter = new SearchableSimpleAdapter(this, myArrList, android.R.layout.simple_list_item_2,
-                new String[] {"Name", "Tel"},
-                new int[] {R.id.customTextView, android.R.id.text2});
+            ListView listView = (ListView) findViewById(R.id.groupListView);
 
-        ListView listView = (ListView) findViewById(R.id.groupListView);
-        //ArrayAdapter<String> adapter = new ArrayAdapter<>(this, myArrList,
-        //        android.R.layout.simple_list_item_2, titleFileNameList.toArray(new String[titleFileNameList.size()]));
+            assert listView != null;
+            listView.setAdapter(adapter);
+            listView.setTextFilterEnabled(false);
+            filter = adapter.getFilter();
 
-        assert listView != null;
-        listView.setAdapter(adapter);
-        listView.setTextFilterEnabled(false);
-        filter = adapter.getFilter();
+            final SearchableSimpleAdapter finalAdapter = adapter;
 
-        final ArrayList<String> list = new ArrayList<>();
-        for (int i = 0; i < adapter.getCount(); i++)
-            list.add(((HashMap<String, String>)adapter.getItem(i)).get("Name"));
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getBaseContext(), CodeActivity.class);
-                //String str = (String) parent.getItemAtPosition(position);
-                String str = ((HashMap<String, String>)parent.getItemAtPosition(position)).get("Name");
-                int realPosition = list.indexOf(str);
-                intent.putExtra("FILE_NAME", fileNameList.get(realPosition));
-                intent.putExtra("CONVERTED_FILE_NAME", convertedFileNameList.get(realPosition));
-                startActivity(intent);
+            final ArrayList<String> list = new ArrayList<>();
+            for (int i = 0; i < adapter.getCount(); i++) {
+                list.add(((HashMap<String, String>) adapter.getItem(i)).get("Name"));
             }
-        });
+
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent intent = new Intent(getBaseContext(), CodeActivity.class);
+                    String str = null;
+                    str = ((HashMap<String, String>)parent.getItemAtPosition(position)).get("Name");
+                    int realPosition = list.indexOf(str);
+                    intent.putExtra("FILE_NAME", fileNameList.get(realPosition));
+                    intent.putExtra("CONVERTED_FILE_NAME", convertedFileNameList.get(realPosition));
+                    startActivity(intent);
+                }
+            });
+        } else {
+            SearchableAdapter<String> adapter = new SearchableAdapter<>(this,
+                    R.layout.support_simple_spinner_dropdown_item, convertedFileNameList.toArray(new String[convertedFileNameList.size()]));
+
+            ListView listView = (ListView) findViewById(R.id.groupListView);
+
+            assert listView != null;
+            listView.setAdapter(adapter);
+            listView.setTextFilterEnabled(false);
+            filter = adapter.getFilter();
+
+            final SearchableAdapter finalAdapter = adapter;
+
+            final ArrayList<String> list = new ArrayList<>();
+            for (int i = 0; i < adapter.getCount(); i++) {
+                list.add((String) adapter.getItem(i));
+            }
+
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent intent = new Intent(getBaseContext(), CodeActivity.class);
+                    String str = null;
+                    str = (String) parent.getItemAtPosition(position);
+                    int realPosition = list.indexOf(str);
+                    intent.putExtra("FILE_NAME", fileNameList.get(realPosition));
+                    intent.putExtra("CONVERTED_FILE_NAME", convertedFileNameList.get(realPosition));
+                    startActivity(intent);
+                }
+            });
+        }
 
         setTitle(groupName);
         displayHome();
@@ -139,6 +169,8 @@ public class GroupActivity extends AppCompatActivity implements SearchView.OnQue
     public void onResume() {
         if (changeTheme())
             recreate();
+        if (isChangedAlgoDescProperty(getPreferences()))
+            recreate();
         super.onResume();
     }
 
@@ -159,6 +191,10 @@ public class GroupActivity extends AppCompatActivity implements SearchView.OnQue
         }
     }
 
+    SharedPreferences getPreferences() {
+        return PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+    }
+
     boolean changeTheme() {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         int appTheme = Integer.parseInt(preferences.getString("APP_THEME", "0"));
@@ -174,6 +210,18 @@ public class GroupActivity extends AppCompatActivity implements SearchView.OnQue
         } else {
             return false;
         }
+    }
+
+    boolean isChangedAlgoDescProperty(SharedPreferences preferences) {
+        String lineNumbersProperty = getAlgoDescProperty(preferences);
+        return !lineNumbersProperty.equals(currentAlgoDescProperty);
+    }
+
+    String getAlgoDescProperty(SharedPreferences preferences) {
+        String algoDesc = "";
+        if (preferences.getBoolean("ALGO_DESC_ENABLED", true))
+            algoDesc = "enabled";
+        return algoDesc;
     }
 
     @Override
