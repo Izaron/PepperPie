@@ -65,14 +65,14 @@ public class GroupActivity extends AppCompatActivity implements SearchView.OnQue
             info = info.replace("{m}", "{M}");
             info = info.replace("N * \\\\log{N}", "N\\\\log{N}");
             while (info.indexOf('$') != -1) {
-                info = info.replaceFirst("\\$", "<b><i>");
-                info = info.replaceFirst("\\$", "</i></b>");
+                info = info.replaceFirst("\\$", "<b>");
+                info = info.replaceFirst("\\$", "</b>");
             }
-            info = info.replace("\\log", "</i> log<i>");
+            info = info.replace("\\log", "log");
             info = info.replace("{", "").replace("}", "");
-            info = info.replace("^2", "</i> \u00B2<i>").replace("^3", "</i> \u00B3<i>").replace("^4", "</i> \u2074<i>").replace("^n", "</i> \u207F<i>").replace("^N", "</i> \u207F<i>");
+            info = info.replace("^2", "\u00B2").replace("^3", "\u00B3").replace("^4", "\u2074").replace("^n", "\u207F").replace("^N", "\u207F");
             info = info.replace("\\sqrt", "\u221A");
-            info = info.replace("*", "</i> *<i>");
+            info = info.replace("*", "*");
             map.put("Tel", info);
             myArrList.add(map);
         }
