@@ -24,8 +24,12 @@ public class SearchableAdapter<T> extends ArrayAdapter<T> implements Filterable 
         originalData = (List<String>) Arrays.asList(objects);
 
         lowerCaseData = new ArrayList<>();
-        for (int i = 0; i < originalData.size(); i++)
-            lowerCaseData.add(originalData.get(i).toLowerCase());
+        for (int i = 0; i < originalData.size(); i++) {
+            if (originalData.get(i) == null)
+                lowerCaseData.add("");
+            else
+                lowerCaseData.add(originalData.get(i).toLowerCase());
+        }
     }
 
     @Override

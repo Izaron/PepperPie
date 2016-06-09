@@ -2,13 +2,12 @@ package com.izaron.pepperpied;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.SearchView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +16,7 @@ import android.widget.Filter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class GroupActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
@@ -43,16 +43,52 @@ public class GroupActivity extends AppCompatActivity implements SearchView.OnQue
             String subgroup = "";
             if (MainActivity.subgroupMap.containsKey(s))
                 subgroup = MainActivity.subgroupMap.get(s);
-            if (subgroup.equals(groupName)) {
+            if (subgroup.equals(groupName) || groupName.equals("All algorithms")) {
                 fileNameList.add(s);
                 convertedFileNameList.add(MainActivity.convertedFileNameList.get(i));
-                titleFileNameList.add(MainActivity.titleMap.get(s));
+                //titleFileNameList.add(MainActivity.titleMap.get(s));
+                titleFileNameList.add(s);
             }
         }
 
+
+        ArrayList<HashMap<String, String>> myArrList = new ArrayList<>();
+        HashMap<String, String> map;
+
+        for (int i = 0; i < titleFileNameList.size(); i++) {
+            map = new HashMap<>();
+            map.put("Name", convertedFileNameList.get(i));
+            String info = "<null>";
+            if (MainActivity.titleMap.containsKey(fileNameList.get(i)))
+                info = MainActivity.titleMap.get(fileNameList.get(i));
+            info = info.replace("{n}", "{N}");
+            info = info.replace("{m}", "{M}");
+            info = info.replace("N * \\\\log{N}", "N\\\\log{N}");
+            while (info.indexOf('$') != -1) {
+                info = info.replaceFirst("\\$", "<b><i>");
+                info = info.replaceFirst("\\$", "</i></b>");
+            }
+            info = info.replace("\\log", "</i> log<i>");
+            info = info.replace("{", "").replace("}", "");
+            info = info.replace("^2", "</i> \u00B2<i>").replace("^3", "</i> \u00B3<i>").replace("^4", "</i> \u2074<i>").replace("^n", "</i> \u207F<i>").replace("^N", "</i> \u207F<i>");
+            info = info.replace("\\sqrt", "\u221A");
+            info = info.replace("*", "</i> *<i>");
+            map.put("Tel", info);
+            myArrList.add(map);
+        }
+
+
+        //SimpleAdapter adapter = new SimpleAdapter(this, myArrList, android.R.layout.simple_list_item_2,
+        //        new String[] {"Name", "Tel"},
+        //        new int[] {android.R.id.text1, android.R.id.text2});
+
+        SearchableSimpleAdapter adapter = new SearchableSimpleAdapter(this, myArrList, android.R.layout.simple_list_item_2,
+                new String[] {"Name", "Tel"},
+                new int[] {R.id.customTextView, android.R.id.text2});
+
         ListView listView = (ListView) findViewById(R.id.groupListView);
-        SearchableAdapter<String> adapter = new SearchableAdapter<>(this,
-                R.layout.support_simple_spinner_dropdown_item, titleFileNameList.toArray(new String[titleFileNameList.size()]));
+        //ArrayAdapter<String> adapter = new ArrayAdapter<>(this, myArrList,
+        //        android.R.layout.simple_list_item_2, titleFileNameList.toArray(new String[titleFileNameList.size()]));
 
         assert listView != null;
         listView.setAdapter(adapter);
@@ -61,13 +97,14 @@ public class GroupActivity extends AppCompatActivity implements SearchView.OnQue
 
         final ArrayList<String> list = new ArrayList<>();
         for (int i = 0; i < adapter.getCount(); i++)
-            list.add(adapter.getItem(i));
+            list.add(((HashMap<String, String>)adapter.getItem(i)).get("Name"));
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getBaseContext(), CodeActivity.class);
-                String str = (String) parent.getItemAtPosition(position);
+                //String str = (String) parent.getItemAtPosition(position);
+                String str = ((HashMap<String, String>)parent.getItemAtPosition(position)).get("Name");
                 int realPosition = list.indexOf(str);
                 intent.putExtra("FILE_NAME", fileNameList.get(realPosition));
                 intent.putExtra("CONVERTED_FILE_NAME", convertedFileNameList.get(realPosition));

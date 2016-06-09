@@ -29,7 +29,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private int currentTheme;
     private Set<String> fileSet;
     public static Set<String> uriSet;
-    public static Set<String> groupSet;
+    public static Set<String> subgroupSet;
     public static Map<String, String> titleMap;
     public static Map<String, String> subgroupMap;
     public static List<String> convertedFileNameList;
@@ -56,9 +56,20 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         fileSet = new HashSet<>();
         readFileNames(fileNameList, convertedFileNameList);
 
+        uriSet = new HashSet<>();
+        subgroupSet = new HashSet<>();
+        titleMap = new HashMap<>();
+        subgroupMap = new HashMap<>();
+        parseJson();
+
+        final List<String> subgroupList = new ArrayList<>();
+        subgroupList.add("All algorithms");
+        for (String s : subgroupSet)
+            subgroupList.add(s);
+
         ListView listView = (ListView) findViewById(R.id.listView);
         SearchableAdapter<String> adapter = new SearchableAdapter<>(this,
-                R.layout.support_simple_spinner_dropdown_item, convertedFileNameList.toArray(new String[convertedFileNameList.size()]));
+                R.layout.support_simple_spinner_dropdown_item, subgroupList.toArray(new String[subgroupList.size()]));
 
         assert listView != null;
         listView.setAdapter(adapter);
@@ -80,20 +91,15 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 //startActivity(intent);
 
                 Intent intent = new Intent(getBaseContext(), GroupActivity.class);
-                intent.putExtra("currentGroup", "Strings");
+                intent.putExtra("currentGroup", subgroupList.get(position));
                 startActivity(intent);
             }
         });
-
-        uriSet = new HashSet<>();
-        groupSet = new HashSet<>();
-        titleMap = new HashMap<>();
-        subgroupMap = new HashMap<>();
-        parseJson();
     }
 
     void parseJson() {
         String jsonFile = readFileFromAsset("algo_group.json");
+        TreeSet<String> set = new TreeSet<>();
 
         try {
             JSONArray jsonArray = new JSONArray(jsonFile);
@@ -108,6 +114,11 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 String group = jsonObject.getString("group");
                 String subgroup = jsonObject.getString("subgroup");
 
+                boolean kek = false;
+                if (uri.equals("treap_bst"))
+                    kek = true;
+                set.add(uri);
+
                 if (!group.equals("Algorithms and Data Structures"))
                     continue;
 
@@ -120,8 +131,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 if (!hasJava)
                     continue;
 
-                groupSet.add(group);
+                subgroupSet.add(subgroup);
 
+                uri = getRealClassName(uri);
                 if (!fileSet.contains(uri)) {
                     Log.i("CONT", uri);
                     continue;
@@ -139,7 +151,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         for (String s : fileSet)
             Log.i("CONT2", s);
 
-        for (String s : groupSet)
+        for (String s : subgroupSet)
             Log.i("GROUPS", s);
     }
 
@@ -213,6 +225,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         if (uri.equals("string_hashing")) return "hashing";
         if (uri.equals("prefix_function")) return "kmp";
         if (uri.equals("suffix_array_lcp")) return "n_u_l_l";
+
+        //if (uri.equals("treap_bst")) return "treap_b_s_t";
+
         return uri;
     }
 
