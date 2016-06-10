@@ -32,7 +32,7 @@
       }
     ],
     "subgroup": "Backtracking",
-    "title": "Maximum weighted independent set in $O^*(3^\\frac{V}{3})$ (alternative to Bron-Kerbosh)",
+    "title": "Maximum weighted independent set in $O(3^(V/3))$ (alternative to Bron-Kerbosh)",
     "uri": "mis-weighted"
   },
   {
@@ -800,7 +800,7 @@
       }
     ],
     "subgroup": "Dynamic Programming",
-    "title": "Shortest Hamiltonian cycle (TSP) in $O(2^N * N^2)$",
+    "title": "Shortest Hamiltonian cycle (TSP) in $O(2^N*N^2)$",
     "uri": "dynamic-tsp"
   },
   {
@@ -812,7 +812,7 @@
       }
     ],
     "subgroup": "Dynamic Programming",
-    "title": "Shortest Hamiltonian path in $O(2^N * N^2)$",
+    "title": "Shortest Hamiltonian path in $O(2^N*N^2)$",
     "uri": "shortest-hamiltonian-path"
   },
   {
@@ -953,7 +953,7 @@
       }
     ],
     "subgroup": "Flows",
-    "title": "Maximum flow. Edmonds-Karp algorithm in $O(min( E^2*V, E*FLOW ))$",
+    "title": "Maximum flow. Edmonds-Karp algorithm in $O(min(E^2*V, E*FLOW))$",
     "uri": "edmonds-karp"
   },
   {
@@ -1028,7 +1028,7 @@
       }
     ],
     "subgroup": "Geometry",
-    "title": "Closest pair of a planar point set in $O(N * \\log^2{N})$ using divide and conquer",
+    "title": "Closest pair of a planar point set in $O(N\\log^2{N})$ using divide and conquer",
     "uri": "closest_pair"
   },
   {
@@ -1049,7 +1049,7 @@
       }
     ],
     "subgroup": "Geometry",
-    "title": "Convex Hull in $O(N * \\log{N})$",
+    "title": "Convex Hull in $O(N\\log{N})$",
     "uri": "convex-hull"
   },
   {
@@ -1160,7 +1160,7 @@
       }
     ],
     "subgroup": "Geometry",
-    "title": "Point location in $O(\\log{n})$ with preprocessing in $O(N*\\log{n})$",
+    "title": "Point location in $O(\\log{n})$ with preprocessing in $O(N\\log{n})$",
     "uri": "point-location"
   },
   {
@@ -1196,7 +1196,7 @@
       }
     ],
     "subgroup": "Geometry",
-    "title": "Polygons intersection area in $O(N^2*\\log{N})$",
+    "title": "Polygons intersection area in $O(N^2\\log{N})$",
     "uri": "polygon-polygon-intersection"
   },
   {
@@ -1379,7 +1379,7 @@
       }
     ],
     "subgroup": "Matching",
-    "title": "Maximum matching for bipartite graph. Hopcroft-Karp algorithm in $O(E * \\sqrt{V})$",
+    "title": "Maximum matching for bipartite graph. Hopcroft-Karp algorithm in $O(E*\\sqrt{V})$",
     "uri": "hopcroft-karp"
   },
   {
@@ -1475,7 +1475,7 @@
       }
     ],
     "subgroup": "Miscellaneous",
-    "title": "Longest increasing subsequence in $O(N * \\log{N})$",
+    "title": "Longest increasing subsequence in $O(N\\log{N})$",
     "uri": "lis-nlogn"
   },
   {
@@ -1784,7 +1784,7 @@
       }
     ],
     "subgroup": "Shortest Paths",
-    "title": "Shortest paths. Dijkstra's algorithm in $O(E * \\log{V})$",
+    "title": "Shortest paths. Dijkstra's algorithm in $O(E\\log{V})$",
     "uri": "dijkstra-heap"
   },
   {
@@ -1808,7 +1808,7 @@
       }
     ],
     "subgroup": "Shortest Paths",
-    "title": "Shortest paths. Dijkstra's algorithm with segment tree in $O(E * \\log{V})$",
+    "title": "Shortest paths. Dijkstra's algorithm with segment tree in $O(E\\log{V})$",
     "uri": "dijkstra-segment-tree"
   },
   {
@@ -1901,7 +1901,7 @@
       }
     ],
     "subgroup": "Spanning Tree",
-    "title": "Minimum spanning tree. Prim's algorithm in $O(E * \\log{V})$",
+    "title": "Minimum spanning tree. Prim's algorithm in $O(E\\log{V})$",
     "uri": "mst-prim"
   },
   {
@@ -2033,7 +2033,7 @@
       }
     ],
     "subgroup": "Strings",
-    "title": "Suffix Array in $O(N * \\log^2{N})$",
+    "title": "Suffix Array in $O(N\\log^2{N})$",
     "uri": "suffix-array2"
   },
   {
@@ -2045,7 +2045,7 @@
       }
     ],
     "subgroup": "Strings",
-    "title": "Suffix Array in $O(N * \\log{N})$ and LCP in $O(N)$",
+    "title": "Suffix Array in $O(N\\log{N})$ and LCP in $O(N)$",
     "uri": "suffix-array"
   },
   {
@@ -2057,7 +2057,7 @@
       }
     ],
     "subgroup": "Strings",
-    "title": "Suffix automaton in $O(N * alphabetSize)$",
+    "title": "Suffix automaton in $O(N*alphabetSize)$",
     "uri": "suffix-automaton"
   },
   {
@@ -2069,7 +2069,7 @@
       }
     ],
     "subgroup": "Strings",
-    "title": "Suffix tree. Ukkonen's algorithm in $O(N * alphabetSize)$",
+    "title": "Suffix tree. Ukkonen's algorithm in $O(N*alphabetSize)$",
     "uri": "suffix-tree"
   },
   {

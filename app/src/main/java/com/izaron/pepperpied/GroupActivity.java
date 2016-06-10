@@ -72,6 +72,7 @@ public class GroupActivity extends AppCompatActivity implements SearchView.OnQue
             info = info.replace("{", "").replace("}", "");
             info = info.replace("^2", "\u00B2").replace("^3", "\u00B3").replace("^4", "\u2074").replace("^n", "\u207F").replace("^N", "\u207F");
             info = info.replace("\\sqrt", "\u221A");
+            info = info.replace(" * ", "*");
             info = info.replace("*", "*");
 
             if (info.isEmpty())
