@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.1" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.izaron.pepperpied">
 
@@ -16,7 +16,7 @@
         </activity>
         <activity android:name=".CodeActivity" />
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".GroupActivity"></activity>
+        <activity android:name=".GroupActivity"/>
     </application>
 
 </manifest>
