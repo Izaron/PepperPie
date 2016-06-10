@@ -1,4 +1,17 @@
 <resources>
+
+    <string-array name="appThemeArray">
+        <item>Default</item>
+        <item>White</item>
+        <item>Black</item>
+    </string-array>
+
+    <string-array name="appThemeValues">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
     <string-array name="codeThemeArray">
         <item>Default</item>
         <item>Agate</item>
@@ -147,15 +160,16 @@
         <item>zenburn</item>
     </string-array>
 
-    <string-array name="appThemeArray">
-        <item>Default</item>
-        <item>White</item>
-        <item>Black</item>
+    <string-array name="codeFontArray">
+        <item>Inconsolata</item>
+        <item>Consolas</item>
+        <item>Deja Vu Sans Mono</item>
+        <item>Droid Sans Mono</item>
+        <item>Monofur</item>
+        <item>Profont</item>
+        <item>Monaco</item>
+        <item>Andale Mono</item>
+        <item>Courier New</item>
     </string-array>
 
-    <string-array name="appThemeValues">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
 </resources>

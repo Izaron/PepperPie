@@ -16,6 +16,14 @@
         android:entries="@array/codeThemeArray"
         android:entryValues="@array/codeThemeValues" />
 
+    <ListPreference
+        android:title="Code Font"
+        android:summary="Select your favourite code font."
+        android:key="CODE_FONT"
+        android:defaultValue="Inconsolata"
+        android:entries="@array/codeFontArray"
+        android:entryValues="@array/codeFontArray" />
+
     <CheckBoxPreference android:title="Enable Line Numbers"
         android:defaultValue="true"
         android:summary="Turn on if you want to see the line numbers."

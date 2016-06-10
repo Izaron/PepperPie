@@ -23,6 +23,7 @@ public class CodeActivity extends AppCompatActivity {
     private int currentTheme;
     private String currentCodeTheme;
     private String currentLineNumbersProperty;
+    private String currentFont;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,10 @@ public class CodeActivity extends AppCompatActivity {
         String lineNumbersProperty = getLineNumbersProperty(preferences);
         currentLineNumbersProperty = lineNumbersProperty;
         String sourceCode = readSourceCode(fileName);
-        String html = generateHtml(codeTheme, lineNumbersProperty, sourceCode);
+        String font = getFont(preferences);
+        currentFont = font;
+
+        String html = generateHtml(codeTheme, lineNumbersProperty, font, sourceCode);
 
         String mime = "text/html";
         String encoding = "utf-8";
@@ -81,6 +85,11 @@ public class CodeActivity extends AppCompatActivity {
         return !lineNumbersProperty.equals(currentLineNumbersProperty);
     }
 
+    boolean isChangedFont(SharedPreferences preferences) {
+        String font = getFont(preferences);
+        return !font.equals(currentFont);
+    }
+
     SharedPreferences getPreferences() {
         return PreferenceManager.getDefaultSharedPreferences(getBaseContext());
     }
@@ -106,6 +115,10 @@ public class CodeActivity extends AppCompatActivity {
         return lineNumbers;
     }
 
+    String getFont(SharedPreferences preferences) {
+        return preferences.getString("CODE_FONT", "Inconsolata");
+    }
+
     String readSourceCode(String fileName) {
         try {
             InputStream ins = getResources().openRawResource(
@@ -124,7 +137,7 @@ public class CodeActivity extends AppCompatActivity {
         return null;
     }
 
-    String generateHtml(String codeTheme, String lineNumbersProperty, String sourceCode) {
+    String generateHtml(String codeTheme, String lineNumbersProperty, String font, String sourceCode) {
         //return MessageFormat.format("<link href=\"styles/fonts.css\" rel=\"stylesheet\"/><link href=\"styles/{0}.css\" rel=\"stylesheet\"/><script src=\"styles/style.js\"></script> <html><body><table style = \"padding: 0px; margin: 0px;border: none;border-collapse: collapse;\"><tr><td> <pre><code class=\"language-java {1}\" >{2}</td>\n</tr>\n</table></code></pre>  </body></html>", codeTheme, lineNumbersProperty, sourceCode);
         if (!lineNumbersProperty.isEmpty()) {
             return "<link rel=\"stylesheet\" href=\"styles-hl/" + codeTheme + ".css\">\n" +
@@ -133,6 +146,9 @@ public class CodeActivity extends AppCompatActivity {
                     "<script>hljs.initHighlightingOnLoad();</script>\n" +
                     "<script>hljs.initLineNumbersOnLoad();</script>\n" +
                     "<link rel=\"stylesheet\" href=\"lines.css\">\n" +
+                    "<style type=\"text/css\">.hljs {\n" +
+                    "    font-family: \"" + font + "\";\n" +
+                    "}\n" +
                     "</style>\n" +
                     "<html><body>  <pre><code class=\"java\" >" + sourceCode + "</code></pre>  </body></html>";
         } else {
@@ -142,6 +158,7 @@ public class CodeActivity extends AppCompatActivity {
                     "<link rel=\"stylesheet\" href=\"lines.css\">\n" +
                     "<style type=\"text/css\">.hljs {\n" +
                     "    padding-left: 0.5em;\n" +
+                    "    font-family: \"" + font + "\";\n" +
                     "}\n" +
                     "</style>\n" +
                     "<html><body>  <pre><code class=\"java\" >" + sourceCode + "</code></pre>  </body></html>";
@@ -229,6 +246,8 @@ public class CodeActivity extends AppCompatActivity {
         if (isChangedCodeTheme(getPreferences()))
             recreate();
         if (isChangedLineNumbersProperty(getPreferences()))
+            recreate();
+        if (isChangedFont(getPreferences()))
             recreate();
         super.onResume();
     }
