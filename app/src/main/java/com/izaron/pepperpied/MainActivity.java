@@ -24,11 +24,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
@@ -56,10 +55,10 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         fileSet = new TreeSet<>();
         readFileNames(fileNameList, convertedFileNameList);
 
-        uriSet = new HashSet<>();
-        subgroupSet = new HashSet<>();
-        titleMap = new HashMap<>();
-        subgroupMap = new HashMap<>();
+        uriSet = new TreeSet<>();
+        subgroupSet = new TreeSet<>();
+        titleMap = new TreeMap<>();
+        subgroupMap = new TreeMap<>();
         parseJson();
 
         final List<String> subgroupList = new ArrayList<>();
