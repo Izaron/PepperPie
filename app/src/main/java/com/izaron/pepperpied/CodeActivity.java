@@ -133,12 +133,17 @@ public class CodeActivity extends AppCompatActivity {
                     "<script>hljs.initHighlightingOnLoad();</script>\n" +
                     "<script>hljs.initLineNumbersOnLoad();</script>\n" +
                     "<link rel=\"stylesheet\" href=\"lines.css\">\n" +
+                    "</style>\n" +
                     "<html><body>  <pre><code class=\"java\" >" + sourceCode + "</code></pre>  </body></html>";
         } else {
             return "<link rel=\"stylesheet\" href=\"styles-hl/" + codeTheme + ".css\">\n" +
                     "<script src=\"highlight.pack.js\"></script>\n" +
                     "<script>hljs.initHighlightingOnLoad();</script>\n" +
                     "<link rel=\"stylesheet\" href=\"lines.css\">\n" +
+                    "<style type=\"text/css\">.hljs {\n" +
+                    "    padding-left: 0.5em;\n" +
+                    "}\n" +
+                    "</style>\n" +
                     "<html><body>  <pre><code class=\"java\" >" + sourceCode + "</code></pre>  </body></html>";
         }
     }
